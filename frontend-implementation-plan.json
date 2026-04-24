@@ -1,0 +1,181 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "PhishGuard Security Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-4",
+      "summary": "Implement real-time alert and notification system for detected threats",
+      "acceptanceCriteria": [
+        "Display prominent alert notifications when threats are detected",
+        "Show specific threat type (phishing or keylogger)",
+        "Include threat severity level in alerts",
+        "Provide recommended actions for each threat type",
+        "Alerts are dismissible but logged for history"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ThreatAlert.tsx",
+          "operation": "create",
+          "description": "Create alert component that displays threat notifications with severity indicators, threat type, details, and recommended actions. Uses color-coded styling (red for high risk, yellow for medium, green for low). Integrates with shadcn/ui Alert component. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useThreatNotifications.ts",
+          "operation": "create",
+          "description": "Create React hook that manages threat alert state, handles new threat notifications from backend data, and provides dismiss functionality while maintaining alert history."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create security reporting and logging system with historical threat tracking",
+      "acceptanceCriteria": [
+        "Frontend displays security report dashboard",
+        "Reports include all threat details: type, severity, detection method",
+        "Historical view shows trends and patterns over time",
+        "Reports are exportable or viewable in organized format"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SecurityReportDashboard.tsx",
+          "operation": "create",
+          "description": "Create comprehensive security report dashboard that displays historical threat detections fetched via getAllDetections backend method. Shows threat type, timestamp, risk score, detection method, and details in tabular format with filtering and sorting capabilities. Uses shadcn/ui Table component. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useThreatHistory.ts",
+          "operation": "create",
+          "description": "Create React Query hook that fetches and caches threat detection history from backend using getAllDetections method. Provides filtering by threat type and risk score threshold using getDetectionsByType and getDetectionsByRiskScore methods."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route and navigation for SecurityReportDashboard component to make it accessible from main application navigation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Design URL analysis interface for phishing detection with real-time results",
+      "acceptanceCriteria": [
+        "Input field for URL submission",
+        "Submit button triggers analysis",
+        "Display loading state during analysis",
+        "Show results with color-coded threat levels (safe, suspicious, dangerous)",
+        "List specific risk factors found in the URL",
+        "Display domain reputation score"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/URLAnalyzer.tsx",
+          "operation": "create",
+          "description": "Create URL analysis interface with input field, submit button, and results display. Calls analyzeURL backend method on submission. Shows loading state during analysis. Displays color-coded threat level based on riskScore (green: 0-30, yellow: 31-70, red: 71-100). Shows threat details and detection method. Uses shadcn/ui Input and Button components. Includes generated phishing hook icon from frontend/public/assets/generated/phishing-hook-icon.dim_128x128.png. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useURLAnalysis.ts",
+          "operation": "create",
+          "description": "Create React Query mutation hook that calls analyzeURL backend method, handles loading and error states, and manages URL analysis results."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route and navigation for URLAnalyzer component to make it accessible from main application navigation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build process monitoring dashboard displaying security status of processes",
+      "acceptanceCriteria": [
+        "Dashboard shows list of monitored processes",
+        "Each process displays: name, PID, and security status",
+        "Suspicious processes are highlighted with warning indicators",
+        "Click on process to view detailed threat analysis",
+        "Refresh button to update process list",
+        "Filter options to show all processes or only suspicious ones"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProcessMonitoringDashboard.tsx",
+          "operation": "create",
+          "description": "Create process monitoring dashboard that displays simulated process list with security status. Allows input of process names to check via detectKeylogger backend method. Shows detection results with threat indicators. Includes filter for showing all or suspicious processes only. Uses refresh functionality to re-scan. Uses shadcn/ui Table and Badge components for process display. Includes generated process monitoring gear icon from frontend/public/assets/generated/process-monitoring-icon.dim_128x128.png. Includes educational disclaimer about simulation limitations due to browser security constraints. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ProcessDetailModal.tsx",
+          "operation": "create",
+          "description": "Create modal component that displays detailed threat analysis for selected process including threat type, risk score, detection method, and recommended actions. Uses shadcn/ui Dialog component. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useProcessDetection.ts",
+          "operation": "create",
+          "description": "Create React Query mutation hook that calls detectKeylogger backend method for process name analysis, manages detection results, and handles loading states."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route and navigation for ProcessMonitoringDashboard component to make it accessible from main application navigation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Implement system overview dashboard with real-time security status and quick access",
+      "acceptanceCriteria": [
+        "Dashboard displays overall system security status",
+        "Shows count of active threats detected",
+        "Lists recent alerts chronologically",
+        "Provides quick action buttons for URL scanning and process monitoring",
+        "Visual indicators for system health status"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SystemOverviewDashboard.tsx",
+          "operation": "create",
+          "description": "Create main dashboard showing security status summary with threat count statistics, recent alerts list, and quick action cards linking to URL analyzer and process monitoring. Fetches threat data using getAllDetections backend method. Displays overall security health indicator based on threat levels. Uses shadcn/ui Card and Badge components. Includes generated security shield logo from frontend/public/assets/generated/security-shield-logo.dim_256x256.png and warning alert icon from frontend/public/assets/generated/alert-warning-icon.dim_128x128.png. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/SecurityStatusIndicator.tsx",
+          "operation": "create",
+          "description": "Create status indicator component that calculates and displays overall system security health based on active threats and risk scores. Shows color-coded status (green: safe, yellow: caution, red: critical) with visual icon."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Set SystemOverviewDashboard as the default landing page route and ensure all feature components (URL analyzer, process monitoring, security reports) are accessible via navigation from the dashboard."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Design cybersecurity-focused visual theme with professional security interface aesthetic",
+      "acceptanceCriteria": [
+        "Consistent dark theme color palette appropriate for security software",
+        "Technical, professional typography choices",
+        "Color-coded threat levels used consistently across all components",
+        "Visual hierarchy emphasizes alerts and important security information",
+        "Interface conveys trustworthiness and technical competence"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Configure cybersecurity-focused dark theme with professional color palette. Define CSS custom properties for threat level colors (--safe-green, --warning-yellow, --danger-red, --critical-red), dark background shades, and accent colors. Apply technical typography stack with monospace font options for code/technical elements. Ensure high contrast for accessibility while maintaining dark theme aesthetic."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind configuration with custom security theme colors including threat level color scale, dark mode optimized background and text colors, and professional accent colors. Configure typography plugin with technical font families. Define custom utility classes for security-focused UI patterns like threat badges, alert borders, and status indicators."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create application layout component that provides consistent structure with dark theme styling, navigation header with PhishGuard branding using generated security shield logo, and main content area. Applies global theme styling and provides navigation to all major sections (overview, URL analyzer, process monitoring, reports)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with Layout component to ensure consistent cybersecurity theme and navigation structure across the entire application."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Phishing and Keylogger Detection System - A cybersecurity tool that monitors URLs for phishing attempts and scans system processes for suspicious keylogging behavior using Python-based detection techniques.",
+  "architectural_notes": [
+    "System architecture: Input Layer → Phishing Detection Module → Keylogger Detection Module → Behavior Analysis Engine → Alert & Logging System",
+    "Phishing detection: URL pattern analysis, domain checking, IP-based domain detection, subdomain analysis, HTTPS certificate validation",
+    "Keylogger detection: Process monitoring using psutil library, suspicious process name checking, keyboard API usage pattern analysis",
+    "Technology stack: Python, psutil library, requests library, regular expressions (regex)",
+    "Platform support: Windows OS and Linux OS",
+    "Requires administrative privileges for deep system scanning"
+  ],
+  "known_issues": [
+    "May not detect zero-day phishing domains",
+    "Advanced encrypted keyloggers may bypass detection",
+    "Requires administrative privileges for deep scanning"
+  ],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Cybersecurity shield icon with circuit board pattern for main logo (security-shield-logo.dim_256x256.png)\n- Warning alert icon with exclamation mark for threat notifications (alert-warning-icon.dim_128x128.png)\n- Phishing hook illustration for URL analysis section (phishing-hook-icon.dim_128x128.png)\n- Process monitoring gear icon for keylogger detection section (process-monitoring-icon.dim_128x128.png)",
+  "existing_features": [
+    {
+      "id": "feature-implement-real-time-alert-and-notification-system-that-triggers-immediate-warnings-when-phishing-urls-or-keylogger-processes-are-detected-displaying-threat-details-and-recommended-actions",
+      "title": "Implement real-time alert and notification system that triggers immediate warnings when phishing URLs or keylogger processes are detected, displaying threat details and recommended actions",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-security-reporting-and-logging-system-that-generates-detailed-reports-of-detected-threats-including-timestamp-threat-type-risk-assessment-detection-method-and-historical-threat-tracking",
+      "title": "Create security reporting and logging system that generates detailed reports of detected threats including: timestamp, threat type, risk assessment, detection method, and historical threat tracking",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-url-analysis-interface-where-users-can-input-urls-for-phishing-detection-displaying-real-time-analysis-results-with-visual-indicators-for-threat-levels-and-specific-risk-factors-identified",
+      "title": "Design URL analysis interface where users can input URLs for phishing detection, displaying real-time analysis results with visual indicators for threat levels and specific risk factors identified",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-process-monitoring-dashboard-that-displays-currently-running-processes-with-security-status-highlighting-suspicious-processes-detected-by-the-keylogger-detection-module-with-detailed-threat-information",
+      "title": "Build process monitoring dashboard that displays currently running processes with security status, highlighting suspicious processes detected by the keylogger detection module with detailed threat information",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-system-overview-dashboard-showing-real-time-security-status-active-threats-count-recent-alerts-and-quick-access-to-url-scanning-and-process-monitoring-features",
+      "title": "Implement system overview dashboard showing real-time security status, active threats count, recent alerts, and quick access to URL scanning and process monitoring features",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-cybersecurity-focused-visual-theme-with-a-professional-security-interface-aesthetic-featuring-dark-mode-optimized-colors-technical-typography-and-alert-appropriate-color-coding-green-for-safe-yellow-orange-for-suspicious-red-for-dangerous-applied-consistently-throughout-the-application",
+      "title": "Design a cybersecurity-focused visual theme with a professional security interface aesthetic featuring dark mode optimized colors, technical typography, and alert-appropriate color coding (green for safe, yellow/orange for suspicious, red for dangerous) applied consistently throughout the application",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Phishing URL detection with pattern and domain analysis",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Keylogger detection through process monitoring",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Real-time threat alerts and notification system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Security reporting and logging functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Behavioral analysis engine for anomaly detection",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Implement phishing URL detection module that analyzes URLs for suspicious patterns including: keywords commonly used in phishing attacks, IP-based domains, excessive subdomains, missing HTTPS certificates, and domain reputation scoring",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Create keylogger detection module that monitors and analyzes system processes for suspicious behavior including: process name pattern matching against known keylogger signatures, detection of processes with abnormal keyboard API usage patterns, and identification of hidden or disguised processes",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Build behavioral analysis engine that evaluates detected anomalies and generates comprehensive threat assessments combining data from phishing and keylogger detection modules",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Phishing and Keylogger Detection System",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

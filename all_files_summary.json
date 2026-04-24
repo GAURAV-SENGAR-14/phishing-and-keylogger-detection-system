@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Motoko actor implementing threat detection backend with URL phishing analysis and keylogger detection functions, storing ThreatDetection records with risk scoring algorithms and query methods for filtering detections by type and risk score.",
+  "feature_evidence.json": "Feature evidence report documenting implemented features including real-time alerts, security reporting, URL analysis interface, process monitoring dashboard, and system overview dashboard with associated files and test IDs.",
+  "frontend-file-summaries.txt": "Text file containing JSON-formatted summaries of all frontend component files describing their functionality, including dashboards, analyzers, modals, hooks, and styling configurations.",
+  "frontend/index.css": "Tailwind CSS base styles defining OKLCH color system variables for light and dark themes with cybersecurity-focused color palette including destructive, safe, and warning variants.",
+  "frontend/index.html": "HTML entry point for the React application with root div and module script reference to main.tsx.",
+  "frontend/src/App.tsx": "Main React application component configuring TanStack Router with routes for overview, URL analyzer, process monitoring, and security reports, wrapped in ThemeProvider with dark theme and Toaster for notifications.",
+  "frontend/src/components/Layout.tsx": "Application layout component providing sticky header with PhishGuard branding and logo, navigation menu with active state highlighting, main content area, and footer with caffeine.ai attribution.",
+  "frontend/src/components/ProcessDetailModal.tsx": "Modal dialog component displaying detailed threat analysis for detected processes including risk assessment with color-coded severity, threat metadata, and context-specific security recommendations based on risk score.",
+  "frontend/src/components/ProcessMonitoringDashboard.tsx": "React component that provides a UI for scanning process names to detect keylogger behavior, displaying results in a filterable table with risk scores and detailed modal views.",
+  "frontend/src/components/SecurityReportDashboard.tsx": "Dashboard component that displays historical threat detection logs with filtering by type and risk level, statistics cards, and CSV export functionality.",
+  "frontend/src/components/SecurityStatusIndicator.tsx": "Status indicator component that displays overall security status (safe/caution/critical) based on threat detection risk scores with appropriate icons and colors.",
+  "frontend/src/components/SystemOverviewDashboard.tsx": "Main dashboard overview component showing security status, threat statistics cards, recent detections, and navigation cards to URL analyzer and process monitoring features.",
+  "frontend/src/components/ThreatAlert.tsx": "Alert component that displays threat detection details with risk-based styling and provides contextual security recommendations for phishing URLs or keylogger processes.",
+  "frontend/src/components/URLAnalyzer.tsx": "URL analysis component that allows users to submit URLs for phishing detection, displaying risk scores, threat alerts, and detailed analysis results.",
+  "frontend/src/hooks/useActor.ts": "React Query hook that manages the backend actor instance, creating authenticated or anonymous actors based on Internet Identity state and invalidating dependent queries on identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "React hook and provider for Internet Identity authentication on ICP, managing login state, identity persistence, and delegation validation with configurable AuthClient options.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching threat detections (all, by type, by risk score) and mutations for URL analysis and process detection with toast notifications based on risk scores.",
+  "frontend/src/index.css": "Tailwind CSS configuration with custom CSS variables for dark/light themes, including cybersecurity-specific color tokens for threat levels (safe, warning, high, medium).",
+  "frontend/src/main.tsx": "Application entry point that sets up React Query client and Internet Identity provider, then renders the root App component.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with custom colors (using OKLCH color space), border radius variables, custom fonts (Inter, JetBrains Mono), and plugins for typography, container queries, and animations.",
+  "project_state.json": "Project metadata describing a phishing and keylogger detection system with architectural notes on detection modules, technology stack (Python, psutil), platform support, and existing features for threat monitoring and alerting."
+}
